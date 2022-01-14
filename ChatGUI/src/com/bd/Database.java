@@ -40,7 +40,7 @@ public class Database {
 
 	}
 	
-	public void insertRecord(String fullName, String emailId, String password) throws SQLException {
+	public void insertRecord(String fullName, String password) throws SQLException {
 
         // Step 1: Establishing a Connection and 
         // try-with-resource statement will auto close the connection.
@@ -48,10 +48,9 @@ public class Database {
             .getConnection(url, user, passwd);
 
             // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_QUERY)) {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO UTILISATEUR (LOGIN,PASSWORD) VALUES ('"+ fullName +"','"+ password +"'); ")) {
             preparedStatement.setString(1, fullName);
-            preparedStatement.setString(2, emailId);
-            preparedStatement.setString(3, password);
+            preparedStatement.setString(2, password);
 
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query

@@ -11,4 +11,5 @@ module chatGUI {
 	requires javafx.fxml;
 	requires javafx.graphics;
 	requires java.sql;
+	requires java.base;
 }

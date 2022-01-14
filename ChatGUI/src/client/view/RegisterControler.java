@@ -1,6 +1,9 @@
 package client.view;
 
 import java.sql.SQLException;
+
+import com.bd.Database;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -43,8 +46,8 @@ public class RegisterControler {
         String fullName = fullNameField.getText();
         String password = passwordField.getText();
 
-        JdbcDao jdbcDao = new JdbcDao();
-        jdbcDao.insertRecord(fullName, emailId, password);
+        Database database = new Database();
+        database.insertRecord(fullName, password);
 
         showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
             "Welcome " + fullNameField.getText());
