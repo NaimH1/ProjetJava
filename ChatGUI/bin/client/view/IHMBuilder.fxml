@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.TextFlow?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.IHMBuilderControler">
+   <children>
+      <Label layoutX="139.0" layoutY="6.0" text="Général :" />
+      <TextArea fx:id="textToSend" layoutX="106.0" layoutY="350.0" prefHeight="139.0" prefWidth="402.0" />
+      <Button fx:id="sendBtn" layoutX="575.0" layoutY="387.0" onAction="#sendMessage" text="Send Message" />
+      <Button fx:id="clearBtn" layoutX="601.0" layoutY="440.0" mnemonicParsing="false" onAction="#clear" text="clear" />
+      <ScrollPane fx:id="scrollReceivedText" layoutX="139.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextFlow fx:id="receivedText" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="552.0" layoutY="26.0" text="Utilisateurs connectés :" />
+      <ListView layoutX="501.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</Pane>
