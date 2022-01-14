@@ -13,7 +13,7 @@ public class Database {
 	String url = "jdbc:oracle:thin:@iutdoua-oracle.univ-lyon1.fr:1521:cdb1/" + BDD;
 	String user = "p2111646";
 	String passwd = "624695";
-	
+	String lastusr = "select max(NUM_UTILISATEUR) FROM UTILISATEUR;" + 1;
 	public void main(String[] args) {
 
 		try {
@@ -48,7 +48,7 @@ public class Database {
             .getConnection(url, user, passwd);
 
             // Step 2:Create a statement using connection object
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO UTILISATEUR (LOGIN,PASSWORD) VALUES ('"+ fullName +"','"+ password +"'); ")) {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO UTILISATEUR (LOGIN,PASSWORD) VALUES ('"+ lastusr +"','"+ fullName +"','"+ password +"'); ")) {
             preparedStatement.setString(1, fullName);
             preparedStatement.setString(2, password);
 
