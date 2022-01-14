@@ -9,9 +9,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="730.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.IHMBuilderControler">
    <children>
-      <TextField layoutX="291.0" layoutY="240.0" />
-      <PasswordField layoutX="291.0" layoutY="295.0" />
-      <Button layoutX="482.0" layoutY="374.0" mnemonicParsing="false" text="Connexion" />
+      <TextField fx:id="fullNameField" layoutX="291.0" layoutY="240.0" />
+      <PasswordField fx:id="passwordField" layoutX="291.0" layoutY="295.0" />
+      <Button fx:id="submitButton" layoutX="482.0" layoutY="374.0" mnemonicParsing="false" text="Connexion" />
       <Label layoutX="211.0" layoutY="244.0" text="Identifiant :" />
       <Label layoutX="194.0" layoutY="299.0" text="Mot de passe :" />
       <Label layoutX="267.0" layoutY="348.0" text="Identifiant ou mot de passe invalide !" textFill="#f80000" visible="false" />
