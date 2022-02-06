@@ -1,16 +1,118 @@
-CREATE TABLE UTILISATEUR (
-NUM_UTILISATEUR INTEGER CONSTRAINT utilisateur_num_util_pk PRIMARY KEY,
-LOGIN VARCHAR2(25) NOT NULL,
-PASSWORD VARCHAR(25) NOT NULL);
+CREATE DATABASE java_chat;
+use java_chat;
 
-CREATE TABLE CONVERSATION (
-NUM_CONV INTEGER CONSTRAINT conversation_num_conv_pk PRIMARY KEY,
-NUM_UTILISATEUR INTEGER NOT NULL,
-NUM_UTILISATEUR2 INTEGER, 
-TEXTE_CONV VARCHAR(200) NOT NULL);
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : Dim 06 fév. 2022 à 20:08
+-- Version du serveur :  10.4.13-MariaDB
+-- Version de PHP : 7.4.7
 
-ALTER TABLE CONVERSATION ADD CONSTRAINT conversation_num_util_fk FOREIGN KEY (NUM_UTILISATEUR)
-REFERENCES UTILISATEUR;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-ALTER TABLE CONVERSATION ADD CONSTRAINT conversation_num_util2_fk FOREIGN KEY (NUM_UTILISATEUR2)
-REFERENCES UTILISATEUR;
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `java_chat`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `registration`
+--
+
+CREATE TABLE `registration` (
+  `id` int(11) NOT NULL,
+  `identifiant` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `estconnectee` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `registration`
+--
+
+INSERT INTO `registration` (`id`, `identifiant`, `password`, `email`, `estconnectee`) VALUES
+(1, 'mathwaouh', 'mdpwaouh', 'emailwaouh@gmail.com', 'true'),
+(2, 'artwaouh', 'mdpwaouh', 'artemail@gmail.com', 'false'),
+(3, 'infwaouh', 'mdpwaouh', 'devwaouh@gmail.com', 'false');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `scoregame`
+--
+
+CREATE TABLE `scoregame` (
+  `id` int(11) NOT NULL,
+  `identifiant` varchar(20) NOT NULL,
+  `score` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `scoregame`
+--
+
+INSERT INTO `scoregame` (`id`, `identifiant`, `score`) VALUES
+(1, 'mathwaouh', 89),
+(2, 'artwaouh', 0),
+(3, 'infwaouh', 65);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `registration`
+--
+ALTER TABLE `registration`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `identifiant` (`identifiant`);
+
+--
+-- Index pour la table `scoregame`
+--
+ALTER TABLE `scoregame`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `identifiantSc` (`identifiant`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `registration`
+--
+ALTER TABLE `registration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `scoregame`
+--
+ALTER TABLE `scoregame`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `scoregame`
+--
+ALTER TABLE `scoregame`
+  ADD CONSTRAINT `scoregame_ibfk_1` FOREIGN KEY (`identifiant`) REFERENCES `registration` (`identifiant`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
